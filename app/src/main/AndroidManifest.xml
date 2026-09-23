@@ -10,6 +10,10 @@
         android:theme="@style/Theme.KidsColorWorld">
 
         <activity
+            android:name=".AnimalsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
 
