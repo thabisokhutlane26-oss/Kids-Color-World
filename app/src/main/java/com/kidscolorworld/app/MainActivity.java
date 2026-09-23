@@ -10,79 +10,173 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        showHomeScreen();
+    }
+
+    private void showHomeScreen() {
+
         setContentView(R.layout.activity_main);
 
-        setupCategoryButtons();
-    }
-
-    private void setupCategoryButtons() {
-
-        setupButton(
+        setupCategoryButton(
                 R.id.animalsButton,
-                "Animals 🐶"
+                "Animals",
+                true
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.toysButton,
-                "Toys 🧸"
+                "Toys",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.princessButton,
-                "Princess 👸"
+                "Princess",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.princeButton,
-                "Prince 🤴"
+                "Prince",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.alphabetButton,
-                "Alphabet 🔤"
+                "Alphabet",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.numbersButton,
-                "Numbers 🔢"
+                "Numbers",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.natureButton,
-                "Nature 🌳"
+                "Nature",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.vehiclesButton,
-                "Vehicles 🚗"
+                "Vehicles",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.foodButton,
-                "Food 🍎"
+                "Food",
+                false
         );
 
-        setupButton(
+        setupCategoryButton(
                 R.id.everydayButton,
-                "Everyday Things 🏠"
+                "Everyday Things",
+                false
         );
     }
 
-    private void setupButton(
+    private void setupCategoryButton(
             int buttonId,
-            String categoryName
+            String categoryName,
+            boolean opensAnimals
     ) {
 
         Button button = findViewById(buttonId);
 
         button.setOnClickListener(v -> {
 
+            if (opensAnimals) {
+
+                showAnimalsScreen();
+
+            } else {
+
+                Toast.makeText(
+                        MainActivity.this,
+                        categoryName + " coming soon! 🎨",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+    private void showAnimalsScreen() {
+
+        setContentView(R.layout.animals);
+
+        setupAnimalButton(
+                R.id.dogButton,
+                "Dog"
+        );
+
+        setupAnimalButton(
+                R.id.catButton,
+                "Cat"
+        );
+
+        setupAnimalButton(
+                R.id.lionButton,
+                "Lion"
+        );
+
+        setupAnimalButton(
+                R.id.elephantButton,
+                "Elephant"
+        );
+
+        setupAnimalButton(
+                R.id.monkeyButton,
+                "Monkey"
+        );
+
+        setupAnimalButton(
+                R.id.butterflyButton,
+                "Butterfly"
+        );
+
+        setupAnimalButton(
+                R.id.fishButton,
+                "Fish"
+        );
+
+        setupAnimalButton(
+                R.id.birdButton,
+                "Bird"
+        );
+
+        Button backButton =
+                findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(v ->
+                showHomeScreen()
+        );
+    }
+
+    private void setupAnimalButton(
+            int buttonId,
+            String animalName
+    ) {
+
+        Button button =
+                findViewById(buttonId);
+
+        button.setOnClickListener(v -> {
+
             Toast.makeText(
                     MainActivity.this,
-                    categoryName + " coming soon! 🎨",
+                    animalName +
+                            " coloring page coming next! 🎨",
                     Toast.LENGTH_SHORT
             ).show();
-
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        showHomeScreen();
     }
 }
