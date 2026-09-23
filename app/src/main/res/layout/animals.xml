@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF8E1"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🐾 Animals"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:padding="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose an animal to color!"
+        android:textSize="18sp"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <Button
+        android:id="@+id/dogButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐶  DOG"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/catButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐱  CAT"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/lionButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🦁  LION"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/elephantButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐘  ELEPHANT"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/monkeyButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐵  MONKEY"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/butterflyButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🦋  BUTTERFLY"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/fishButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐟  FISH"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/birdButton"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="🐦  BIRD"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="⬅ Back to Home"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
