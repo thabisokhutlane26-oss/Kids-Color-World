@@ -17,54 +17,72 @@ public class MainActivity extends Activity {
 
     private void setupCategoryButtons() {
 
-        Button animalsButton = findViewById(R.id.animalsButton);
-        Button toysButton = findViewById(R.id.toysButton);
-        Button princessButton = findViewById(R.id.princessButton);
-        Button princeButton = findViewById(R.id.princeButton);
-        Button alphabetButton = findViewById(R.id.alphabetButton);
-        Button numbersButton = findViewById(R.id.numbersButton);
-        Button natureButton = findViewById(R.id.natureButton);
-        Button vehiclesButton = findViewById(R.id.vehiclesButton);
-        Button foodButton = findViewById(R.id.foodButton);
-        Button everydayButton = findViewById(R.id.everydayButton);
+        setupButton(
+                R.id.animalsButton,
+                "Animals 🐶"
+        );
 
-        animalsButton.setOnClickListener(v ->
-                showComingSoon("Animals 🐶"));
+        setupButton(
+                R.id.toysButton,
+                "Toys 🧸"
+        );
 
-        toysButton.setOnClickListener(v ->
-                showComingSoon("Toys 🧸"));
+        setupButton(
+                R.id.princessButton,
+                "Princess 👸"
+        );
 
-        princessButton.setOnClickListener(v ->
-                showComingSoon("Princess 👸"));
+        setupButton(
+                R.id.princeButton,
+                "Prince 🤴"
+        );
 
-        princeButton.setOnClickListener(v ->
-                showComingSoon("Prince 🤴"));
+        setupButton(
+                R.id.alphabetButton,
+                "Alphabet 🔤"
+        );
 
-        alphabetButton.setOnClickListener(v ->
-                showComingSoon("Alphabet 🔤"));
+        setupButton(
+                R.id.numbersButton,
+                "Numbers 🔢"
+        );
 
-        numbersButton.setOnClickListener(v ->
-                showComingSoon("Numbers 🔢"));
+        setupButton(
+                R.id.natureButton,
+                "Nature 🌳"
+        );
 
-        natureButton.setOnClickListener(v ->
-                showComingSoon("Nature 🌳"));
+        setupButton(
+                R.id.vehiclesButton,
+                "Vehicles 🚗"
+        );
 
-        vehiclesButton.setOnClickListener(v ->
-                showComingSoon("Vehicles 🚗"));
+        setupButton(
+                R.id.foodButton,
+                "Food 🍎"
+        );
 
-        foodButton.setOnClickListener(v ->
-                showComingSoon("Food 🍎"));
-
-        everydayButton.setOnClickListener(v ->
-                showComingSoon("Everyday Things 🏠"));
+        setupButton(
+                R.id.everydayButton,
+                "Everyday Things 🏠"
+        );
     }
 
-    private void showComingSoon(String category) {
+    private void setupButton(
+            int buttonId,
+            String categoryName
+    ) {
 
-        Toast.makeText(
-                MainActivity.this,
-                category + " coloring pages coming soon! 🎨",
-                Toast.LENGTH_SHORT
-        ).show();
+        Button button = findViewById(buttonId);
+
+        button.setOnClickListener(v -> {
+
+            Toast.makeText(
+                    MainActivity.this,
+                    categoryName + " coming soon! 🎨",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+        });
     }
 }
