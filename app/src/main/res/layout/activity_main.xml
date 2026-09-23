@@ -1,120 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:background="#FFF8E1">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🎨 Kids Color World"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:gravity="center"
-        android:padding="10dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Color the cute picture!"
-        android:textSize="18sp"
-        android:textColor="#555555"
-        android:gravity="center"
-        android:paddingBottom="10dp"/>
-
-    <ImageView
-        android:id="@+id/coloringPage"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/coloring_page"
-        android:scaleType="fitCenter"
-        android:contentDescription="Kids coloring picture"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choose a color"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="8dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ImageButton
-            android:id="@+id/colorRed"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Red"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎨 Kids Color World"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:gravity="center"
+            android:padding="12dp"/>
 
-        <ImageButton
-            android:id="@+id/colorOrange"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Orange"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌈 Learn • Color • Create 🌈"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#7B1FA2"
+            android:gravity="center"
+            android:paddingBottom="18dp"/>
 
-        <ImageButton
-            android:id="@+id/colorYellow"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Yellow"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose what you want to color!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:gravity="center"
+            android:paddingBottom="14dp"/>
 
-        <ImageButton
-            android:id="@+id/colorGreen"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Green"/>
+        <!-- ANIMALS -->
 
-        <ImageButton
-            android:id="@+id/colorBlue"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Blue"/>
+        <Button
+            android:id="@+id/animalsButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🐶  ANIMALS"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
 
-        <ImageButton
-            android:id="@+id/colorPurple"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Purple"/>
+        <!-- TOYS -->
 
-        <ImageButton
-            android:id="@+id/colorPink"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Pink"/>
+        <Button
+            android:id="@+id/toysButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🧸  TOYS"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
 
-        <ImageButton
-            android:id="@+id/colorBlack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:contentDescription="Black"/>
+        <!-- PRINCESS -->
+
+        <Button
+            android:id="@+id/princessButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="👸  PRINCESS"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- PRINCE -->
+
+        <Button
+            android:id="@+id/princeButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🤴  PRINCE"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- ALPHABET -->
+
+        <Button
+            android:id="@+id/alphabetButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🔤  ALPHABET"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- NUMBERS -->
+
+        <Button
+            android:id="@+id/numbersButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🔢  NUMBERS"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- NATURE -->
+
+        <Button
+            android:id="@+id/natureButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🌳  NATURE"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- VEHICLES -->
+
+        <Button
+            android:id="@+id/vehiclesButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🚗  VEHICLES"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- FOOD -->
+
+        <Button
+            android:id="@+id/foodButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🍎  FOOD"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- EVERYDAY THINGS -->
+
+        <Button
+            android:id="@+id/everydayButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🏠  EVERYDAY THINGS"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⭐ Have fun learning and coloring! ⭐"
+            android:textSize="17sp"
+            android:textColor="#555555"
+            android:gravity="center"
+            android:padding="18dp"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/clearButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🧹 Clear Picture"
-        android:textSize="17sp"
-        android:layout_marginTop="4dp"/>
-
-</LinearLayout>
+</ScrollView>
