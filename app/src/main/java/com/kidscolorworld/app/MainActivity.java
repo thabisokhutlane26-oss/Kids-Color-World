@@ -2,6 +2,7 @@ package com.kidscolorworld.app;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -24,7 +25,7 @@ public class MainActivity extends Activity {
         Button clearButton = findViewById(R.id.clearButton);
 
         clearButton.setOnClickListener(v -> {
-            coloringPage.setImageResource(R.drawable.coloring_page);
+            clearColoring();
 
             Toast.makeText(
                     MainActivity.this,
@@ -64,9 +65,16 @@ public class MainActivity extends Activity {
 
             final int color = colors[i];
 
+            // Show the actual color on the button
             button.setBackgroundColor(color);
 
             button.setOnClickListener(v -> {
+
+                // Apply the selected color to the coloring picture
+                coloringPage.setColorFilter(
+                        color,
+                        PorterDuff.Mode.MULTIPLY
+                );
 
                 Toast.makeText(
                         MainActivity.this,
@@ -75,5 +83,14 @@ public class MainActivity extends Activity {
                 ).show();
             });
         }
+    }
+
+    private void clearColoring() {
+
+        // Remove the selected color
+        coloringPage.clearColorFilter();
+
+        // Reload the original coloring page
+        coloringPage.setImageResource(R.drawable.coloring_page);
     }
 }
