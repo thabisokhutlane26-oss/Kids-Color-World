@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class AnimalsActivity extends Activity {
 
@@ -15,12 +16,10 @@ public class AnimalsActivity extends Activity {
         Button dogButton = findViewById(R.id.dogButton);
 
         dogButton.setOnClickListener(v -> {
-
             Intent intent = new Intent(
                     AnimalsActivity.this,
                     ColoringActivity.class
             );
-
             startActivity(intent);
         });
 
@@ -38,14 +37,13 @@ public class AnimalsActivity extends Activity {
     }
 
     private void setupComingSoon(int buttonId) {
-
         Button button = findViewById(buttonId);
 
         button.setOnClickListener(v ->
-                android.widget.Toast.makeText(
+                Toast.makeText(
                         AnimalsActivity.this,
                         "This animal is coming next! 🎨",
-                        android.widget.Toast.LENGTH_SHORT
+                        Toast.LENGTH_SHORT
                 ).show()
         );
     }
