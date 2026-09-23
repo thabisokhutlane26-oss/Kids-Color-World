@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF8E1"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🐶 Dog Coloring"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose a color, then tap the picture!"
+        android:textSize="17sp"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:paddingBottom="8dp"/>
+
+    <ImageView
+        android:id="@+id/coloringPage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/coloring_page"
+        android:scaleType="fitCenter"
+        android:background="#FFFFFF"
+        android:contentDescription="Dog coloring page"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎨 Colors"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="6dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/colorRed"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Red"/>
+
+        <ImageButton
+            android:id="@+id/colorOrange"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Orange"/>
+
+        <ImageButton
+            android:id="@+id/colorYellow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Yellow"/>
+
+        <ImageButton
+            android:id="@+id/colorGreen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Green"/>
+
+        <ImageButton
+            android:id="@+id/colorBlue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Blue"/>
+
+        <ImageButton
+            android:id="@+id/colorPurple"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Purple"/>
+
+        <ImageButton
+            android:id="@+id/colorPink"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Pink"/>
+
+        <ImageButton
+            android:id="@+id/colorBlack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:contentDescription="Black"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="🧹 Clear"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="⬅ Back to Animals"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
