@@ -1,0 +1,89 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="350dp"
+    android:viewportWidth="300"
+    android:viewportHeight="350">
+
+    <!-- Lion mane -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="5"
+        android:pathData="M150,30
+        Q180,15 195,40
+        Q225,25 235,60
+        Q270,65 260,100
+        Q290,125 265,150
+        Q290,180 260,200
+        Q270,235 235,235
+        Q225,275 195,255
+        Q175,285 150,260
+        Q125,285 105,255
+        Q75,275 65,235
+        Q30,235 40,200
+        Q10,180 35,150
+        Q10,125 40,100
+        Q30,65 65,60
+        Q75,25 105,40
+        Q120,15 150,30 Z" />
+
+    <!-- Face -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="5"
+        android:pathData="M85,105 Q85,65 150,65 Q215,65 215,105 L205,190 Q195,235 150,240 Q105,235 95,190 Z" />
+
+    <!-- Ears -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="4"
+        android:pathData="M85,105 Q55,65 70,55 Q100,55 110,95 Z M190,95 Q200,55 230,55 Q245,65 215,105 Z" />
+
+    <!-- Eyes -->
+    <path
+        android:fillColor="#222222"
+        android:pathData="M105,135 A9,11 0 1,0 123,135 A9,11 0 1,0 105,135" />
+
+    <path
+        android:fillColor="#222222"
+        android:pathData="M177,135 A9,11 0 1,0 195,135 A9,11 0 1,0 177,135" />
+
+    <!-- Nose and muzzle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="4"
+        android:pathData="M115,170 Q150,150 185,170 Q195,215 150,220 Q105,215 115,170 Z" />
+
+    <path
+        android:fillColor="#222222"
+        android:pathData="M137,170 Q150,160 163,170 L150,185 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="4"
+        android:pathData="M150,185 L150,202 M150,202 Q130,220 115,205 M150,202 Q170,220 185,205" />
+
+    <!-- Whisker dots -->
+    <path
+        android:fillColor="#222222"
+        android:pathData="M115,185 A3,3 0 1,0 121,185 A3,3 0 1,0 115,185 M175,185 A3,3 0 1,0 181,185 A3,3 0 1,0 175,185" />
+
+    <!-- Body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="5"
+        android:pathData="M100,250 Q65,260 65,300 L65,325 L110,325 L115,285 Q150,305 185,285 L190,325 L235,325 L235,300 Q235,260 200,250 Z" />
+
+    <!-- Tail -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="5"
+        android:pathData="M225,280 Q265,270 265,240 Q265,220 250,220" />
+
+</vector>
