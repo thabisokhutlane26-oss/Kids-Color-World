@@ -1,0 +1,256 @@
+package com.kidscolorworld.app;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.ArrayDeque;
+
+public class ColoringActivity extends Activity {
+
+    private ImageView coloringPage;
+    private Bitmap originalBitmap;
+    private Bitmap workingBitmap;
+    private int selectedColor = Color.RED;
+    private String animalName = "Dog";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.coloring);
+
+        coloringPage = findViewById(R.id.coloringPage);
+
+        animalName = getIntent().getStringExtra(
+                AnimalsActivity.EXTRA_ANIMAL
+        );
+
+        if (animalName == null || animalName.trim().isEmpty()) {
+            animalName = "Dog";
+        }
+
+        setTitle(animalName + " Coloring");
+
+        loadAnimalPicture();
+        setupColors();
+        setupButtons();
+        setupDrawingTouch();
+    }
+
+    private void loadAnimalPicture() {
+        int drawableId;
+
+        switch (animalName.toLowerCase()) {
+            case "cat":
+                drawableId = R.drawable.animal_cat;
+                break;
+
+            case "lion":
+                drawableId = R.drawable.animal_lion;
+                break;
+
+            case "elephant":
+                drawableId = R.drawable.animal_elephant;
+                break;
+
+            case "monkey":
+                drawableId = R.drawable.animal_monkey;
+                break;
+
+            case "butterfly":
+                drawableId = R.drawable.animal_butterfly;
+                break;
+
+            case "fish":
+                drawableId = R.drawable.animal_fish;
+                break;
+
+            case "bird":
+                drawableId = R.drawable.animal_bird;
+                break;
+
+            case "dog":
+            default:
+                drawableId = R.drawable.animal_dog;
+                break;
+        }
+
+        Drawable drawable = getDrawable(drawableId);
+
+        int width = drawable.getIntrinsicWidth();
+        int height = drawable.getIntrinsicHeight();
+
+        if (width <= 0) width = 600;
+        if (height <= 0) height = 700;
+
+        originalBitmap = Bitmap.createBitmap(
+                width,
+                height,
+                Bitmap.Config.ARGB_8888
+        );
+
+        Canvas canvas = new Canvas(originalBitmap);
+        drawable.setBounds(0, 0, width, height);
+        drawable.draw(canvas);
+
+        resetPicture();
+    }
+
+    private void resetPicture() {
+        if (originalBitmap == null) return;
+
+        if (workingBitmap != null && !workingBitmap.isRecycled()) {
+            workingBitmap.recycle();
+        }
+
+        workingBitmap = originalBitmap.copy(
+                Bitmap.Config.ARGB_8888,
+                true
+        );
+
+        coloringPage.setImageBitmap(workingBitmap);
+        coloringPage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+    }
+
+    private void setupColors() {
+        setColor(R.id.colorRed, Color.RED);
+        setColor(R.id.colorOrange, 0xFFFF9800);
+        setColor(R.id.colorYellow, Color.YELLOW);
+        setColor(R.id.colorGreen, 0xFF00C853);
+        setColor(R.id.colorBlue, Color.BLUE);
+        setColor(R.id.colorPurple, 0xFF9C27B0);
+        setColor(R.id.colorPink, 0xFFFF4081);
+        setColor(R.id.colorBlack, Color.BLACK);
+    }
+
+    private void setColor(int buttonId, int color) {
+        Button button = findViewById(buttonId);
+
+        if (button != null) {
+            button.setOnClickListener(v -> selectedColor = color);
+        }
+    }
+
+    private void setupButtons() {
+        Button clearButton = findViewById(R.id.clearButton);
+
+        if (clearButton != null) {
+            clearButton.setOnClickListener(v -> resetPicture());
+        }
+
+        Button backButton = findViewById(R.id.backButton);
+
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> finish());
+        }
+    }
+
+    private void setupDrawingTouch() {
+        coloringPage.setOnTouchListener((view, event) -> {
+            if (event.getAction() != MotionEvent.ACTION_DOWN) {
+                return true;
+            }
+
+            if (workingBitmap == null) return true;
+
+            float[] point = {
+                    event.getX(),
+                    event.getY()
+            };
+
+            Matrix inverse = new Matrix();
+
+            if (!coloringPage.getImageMatrix().invert(inverse)) {
+                return true;
+            }
+
+            inverse.mapPoints(point);
+
+            int x = (int) point[0];
+            int y = (int) point[1];
+
+            if (x >= 0 && y >= 0
+                    && x < workingBitmap.getWidth()
+                    && y < workingBitmap.getHeight()) {
+
+                fillArea(x, y, selectedColor);
+                coloringPage.invalidate();
+            }
+
+            return true;
+        });
+    }
+
+    private void fillArea(int startX, int startY, int replacementColor) {
+        int width = workingBitmap.getWidth();
+        int height = workingBitmap.getHeight();
+
+        int targetColor = workingBitmap.getPixel(startX, startY);
+
+        if (targetColor == replacementColor) return;
+
+        if (isLineColor(targetColor)) return;
+
+        ArrayDeque<Integer> pixels = new ArrayDeque<>();
+        pixels.add(startY * width + startX);
+
+        int checked = 0;
+        int maxPixels = width * height;
+
+        while (!pixels.isEmpty() && checked < maxPixels) {
+            int position = pixels.removeFirst();
+
+            int x = position % width;
+            int y = position / width;
+
+            if (x < 0 || y < 0 || x >= width || y >= height) {
+                continue;
+            }
+
+            int currentColor = workingBitmap.getPixel(x, y);
+
+            if (currentColor != targetColor || isLineColor(currentColor)) {
+                continue;
+            }
+
+            workingBitmap.setPixel(x, y, replacementColor);
+            checked++;
+
+            if (x > 0) pixels.add(y * width + (x - 1));
+            if (x < width - 1) pixels.add(y * width + (x + 1));
+            if (y > 0) pixels.add((y - 1) * width + x);
+            if (y < height - 1) pixels.add((y + 1) * width + x);
+        }
+    }
+
+    private boolean isLineColor(int color) {
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+
+        return red < 65 && green < 65 && blue < 65;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (workingBitmap != null && !workingBitmap.isRecycled()) {
+            workingBitmap.recycle();
+        }
+
+        if (originalBitmap != null && !originalBitmap.isRecycled()) {
+            originalBitmap.recycle();
+        }
+    }
+}
